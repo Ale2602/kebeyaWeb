@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1"></meta>
+<title>Cliente</title>
+<link rel="shortcut icon" href="/imagen/icon.png" type="image/png"></link>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css"></link>
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script type="text/javascript" th:src="@{/js/client.js}"></script>
+</head>
+<body>
+	<div th:replace="fragments/header :: header"></div>
+	<div class="container">
+		<form th:action="@{/client/registrar}" method="post"
+			th:object="${client}">
+			<div class="form-group">
+				<label for="idClient">ID:</label> <input type="text"
+					class="form-control" th:field="*{idClient}"></input>
+			</div>
+			<div class="form-group">
+				<label for="nombre">NOMBRE:</label> <input type="text"
+					th:field="*{nameClient}" class="form-control" id="nombre"></input>
+				<div class="alert alert-danger"
+					th:if="${#fields.hasErrors('nameClient')}"
+					th:errors="*{nameClient}"></div>
+			</div>
+			<div class="form-group">
+				<label for="apellido">APELLIDO:</label> <input type="text"
+					th:field="*{lastClient}" class="form-control" id="nombre"></input>
+				<div class="alert alert-danger"
+					th:if="${#fields.hasErrors('lastClient')}"
+					th:errors="*{lastClient}"></div>
+			</div>
+			<div class="form-group">
+				<label for="dni">DNI:</label> <input type="text"
+					class="form-control" th:field="*{dniClient}" id="dni" />
+				<div class="alert alert-danger"
+					th:if="${#fields.hasErrors('dniClient')}"
+					th:errors="*{dniClient}"></div>
+			</div>
+			<div class="form-group">
+				<label for="telefono">TELEFONO:</label> <input type="text"
+					class="form-control" th:field="*{phoneClient}" id="telefono" />
+				<div class="alert alert-danger"
+					th:if="${#fields.hasErrors('phoneClient')}"
+					th:errors="*{phoneClient}"></div>
+			</div>
+			<div class="form-group">
+				<label for="email">EMAIL:</label> <input type="email"
+					class="form-control" th:field="*{emailClient}" id="email"></input>
+				<div class="alert alert-danger"
+					th:if="${#fields.hasErrors('emailClient')}"
+					th:errors="*{emailClient}"></div>
+			</div>
+			<button type="submit" class="btn btn-success">Aceptar</button>
+			<a href="/client/listar" class="btn btn-danger">Cancelar</a>
+		</form>
+	</div>
+	<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

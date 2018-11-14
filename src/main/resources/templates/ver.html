@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1"></meta>
+<title>Ver Producto</title>
+<link rel="shortcut icon" href="/imagen/icon.png" type="image/png"></link>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css"></link>
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script type="text/javascript" th:src="@{/js/category.js}"></script>
+</head>
+<body>
+	<div th:replace="fragments/header :: header"></div>
+	<div class="content-wrapper">
+		<div class="container-fluid">
+			<div class="container py-4">
+				<div class="card bg-light">
+					<div class="card-header bg-warning"></div>
+					<div class="card-body">
+						<table class="table table-bordered table-hover table-striped"
+							id="tab_logic">
+							<tbody>
+								<tr>
+									<td>NOMBRE DEL PRODUCTO</td>
+									<td th:text="${product.nameProduct}"></td>
+								</tr>
+								<tr>
+									<td>CODIGO</td>
+									<td th:text="${product.codeProduct}"></td>
+								</tr>
+								<tr>
+									<td>COSTO</td>
+									<td th:text="${product.costProduct}"></td>
+								</tr>
+								<tr>
+									<td>STOCK</td>
+									<td th:text="${product.stockProduct}"></td>
+								</tr>
+								<tr>
+									<td>CATEGORIA</td>
+									<td th:text="${product.category.nameCategory}"></td>
+								</tr>
+								<tr>
+									<td>FOTO</td>
+									<td><img th:if="${#strings.length(product.foto)> 0}"
+										class="img-thumbnail rounded float-left"
+										style="max-width: 50%;"
+										th:src="@{'/product/uploads/' + ${product.foto}}" th:alt="${product.foto}" /></td>
+								</tr>
+							</tbody>
+						</table>
+						<a style="border-bottom-color: green" th:href="@{/product/listar}"
+							id="add-row" type="button"
+							class="btn btn-primary btn-md left-block"> <span
+							class="glyphicon glyphicon-circle-arrow-left"></span> Volver
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"></meta>
+<title>¿Quienes Somos?</title>
+<link rel="shortcut icon" href="/imagen/icon.png" type="image/png"></link>
+<script type="text/javascript"
+	src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.js"></script>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css"></link>
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+	<div th:replace="fragments/header :: header"></div>
+	<div>
+		<h2 align="center">¿QUIENES SOMOS?</h2>
+		<hr />
+	</div>
+	<div class="container">
+		<dl>
+			<dt>Información legal</dt>
+			<dd>La empresa se dedica a la fabricación y venta de prendas de
+				vestir y accesorios</dd>
+			<dd>> RUC: 20507815937</dd>
+		</dl>
+	</div>
+	<div class="container">
+		<dl>
+			<dt>Visita nuestras tiendas:</dt>
+			<dd>> Jr. Gamarra 610 La Victoria</dd>
+			<dd>> Jr. de la Unión 463 Centro de Lima</dd>
+			<dd>> Jr. Balta 1345 Chiclayo</dd>
+		</dl>
+		<dl>
+			<dt>Escríbenos a:</dt>
+			<dd>- kebeya_f@hotmail.com</dd>
+		</dl>
+	</div>
+	<div class="container">
+		<h5>
+			<strong>Y síguenos en nuestras redes sociales:</strong>
+		</h5>
+
+		<!-- <div class="btn btn-lg">
+			<a href="https://www.facebook.com/kebeyafashion/"
+				class="btn btn-primary">Facebook </a> <a
+				href="https://twitter.com/kebeyafashion?lang=es"
+				class="btn btn-info">Twitter</a> <a
+				href="https://www.instagram.com/kebeyafashion/"
+				class="btn btn-warning">Instagram </a>
+		</div> -->
+
+		<!--BTNFB -->
+		<a href="https://www.facebook.com/kebeyafashion/"> <img
+			th:src="@{/imagen/facebook.png}" alt="facebook"
+			style="width: 42px; height: 42px; border: 0;"></img>
+			</a>
+			
+		<!--BTNTWITTER -->
+		<a href="https://twitter.com/kebeyafashion?lang=es"> <img
+			th:src="@{/imagen/twitter.png}" alt="twitter"
+			style="width: 42px; height: 42px; border: 0;"></img>
+		</a>
+
+		<!--BTNINSTAGRAM -->
+		<a href="https://www.instagram.com/kebeyafashion/"> <img
+			th:src="@{/imagen/instagram.png}" alt="instagram"
+			style="width: 42px; height: 42px; border: 0;"></img>
+		</a>
+	</div>
+
+</body>
+</html>

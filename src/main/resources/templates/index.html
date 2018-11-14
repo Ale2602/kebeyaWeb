@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"></meta>
+<title>Kebeya Fashion</title>
+<link rel="shortcut icon" href="/imagen/icon.png" type="image/png"></link>
+<script type="text/javascript"
+	src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.js"></script>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css"></link>
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+
+	<div th:replace="fragments/header :: header"></div>
+	<div class="container">
+		<form id="myform">
+			<div class="row clearfix">
+				<div class="col-md-12 column" align="center">
+					<h1>BIENVENIDO A KEBEYA FASHION</h1>
+					<h3>Venta de ropa, carteras y accesorios para mujer</h3>
+					<img th:src="@{/imagen/welcomeimg.png}" width="590" height="587"
+						alt="logo" align="middle"></img>
+				</div>
+			</div>
+			
+		<!-- circulos -->
+			<div class="row">
+          <div class="col-lg-4">
+            <img th:src="@{/imagen/local.png}" class="rounded-circle" 
+             width="180" height="140"></img>
+            <h2>Local</h2>
+            <p>Encuentranos en nuestros locales.</p>
+            
+         
+          </div><!-- /.col-lg-4 -->
+          <div class="col-lg-4">
+            <img th:src="@{/imagen/primavera.png}" class="rounded-circle" 
+             width="180" height="140"></img>
+            <h2>Temporadas</h2>
+            <p>Encuentra todas las prendas por temporadas.</p>
+         
+          </div><!-- /.col-lg-4 -->
+          <div class="col-lg-4">
+            <img th:src="@{/imagen/outfits.png}" class="rounded-circle" 
+             width="180" height="140"></img>
+            <h2>Outfits</h2>
+            <p>Encuentra el mejor outfit para cada ocasion.</p>
+         
+          </div><!-- /.col-lg-4 -->
+        </div>	
+			
+			
+			<!-- fragmento -->
+		<hr class="featurette-divider">
+
+        <div class="row featurette">
+          <div class="col-md-7">
+            <h2 class="featurette-heading">Delivery <span class="text-muted">Gratis</span></h2>
+            <p class="lead">Realizamos delivery gratis por pedidos mayor a s/. 100. Válido para lima y provincias.</p>
+          </div>
+          <div class="col-md-5">
+            <img  th:src="@{/imagen/delivery.png}" width="590" height="587"
+						class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="Generic placeholder image"></img>
+
+          </div>
+        </div>
+        </hr>
+			
+			
+		</form>
+	</div>
+	<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

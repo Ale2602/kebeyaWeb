@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"></meta>
+<title>Categorías</title>
+<link rel="shortcut icon" href="/imagen/icon.png" type="image/png"></link>
+
+<script type="text/javascript"
+	src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.js"></script>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css"></link>
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+	<div th:replace="fragments/header :: header"></div>
+	<div class="container">
+		<form id="myform">
+			<div class="row clearfix">
+				<div class="col-md-12 column">
+					<a style="border-bottom-color: green"
+						th:href="@{/category/irRegistrar}" id="add-row" type="button"
+						class="btn btn-success"> <span
+						class="glyphicon glyphicon-plus"></span> Categoría
+					</a> <a style="border-bottom-color: green"
+						th:href="@{/category/irBuscar}" id="add-row" type="button"
+						class="btn btn-success"> <span
+						class="glyphicon glyphicon-search"></span>
+					</a>
+					<table class="table table-bordered table-hover table-striped"
+						id="tab_logic">
+						<thead>
+							<tr>
+								<th class="text-center">N°</th>
+								<th class="text-center">CATEGORIA</th>
+								<th class="text-center">CODIGO</th>
+								<th class="text-center">OPERACIÓN</th>
+								<th class="text-center">OPERACIÓN</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="ct: ${listaCategorys}">
+								<td class="text-center" th:text="${ct.idCategory}"></td>
+								<td class="text-center" th:text="${ct.nameCategory}"></td>
+								<td class="text-center" th:text="${ct.codeCategory}"></td>
+								<td class="text-center"><a class="btn btn-danger"
+									th:href="@{/category/eliminar?id=}+${ct.idCategory}"><span
+										class="glyphicon glyphicon-remove"></span></a></td>
+								<td class="text-center"><a class="btn btn-primary"
+									th:href="@{'/category/modificar/' + ${ct.idCategory}}"><span
+										class="glyphicon glyphicon-pencil"></span></a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div th:if="${mensaje}" class="alert alert-danger">
+				<p th:text="${mensaje}"></p>
+			</div>
+		</form>
+	</div>
+	<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1"></meta>
+<title>Productos</title>
+<link rel="shortcut icon" href="/imagen/icon.png" type="image/png"></link>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css"></link>
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div th:replace="fragments/header :: header"></div>
+	<div class="container">
+		<form th:action="@{/product/registrar}" method="post"
+			th:object="${product}" enctype="multipart/form-data">
+			<div class="form-group">
+				<label for="idProduct">ID:</label> <input type="text"
+					class="form-control" th:field="*{idProduct}"></input>
+				<div class="form-group">
+					<label for="nombre">NOMBRE:</label> <input type="text"
+						th:field="*{nameProduct}" class="form-control" id="nombre"></input>
+					<div class="alert alert-danger"
+						th:if="${#fields.hasErrors('nameProduct')}"
+						th:errors="*{nameProduct}"></div>
+					<div class="form-group">
+						<label for="codigo">CODIGO:</label> <input type="text"
+							th:field="*{codeProduct}" class="form-control" id="codigo"></input>
+						<div class="alert alert-danger"
+							th:if="${#fields.hasErrors('codeProduct')}"
+							th:errors="*{codeProduct}"></div>
+					</div>
+					<div class="form-group">
+						<label for="costo">COSTO:</label> <input type="text"
+							th:field="*{costProduct}" class="form-control" id="costo"></input>
+						<div class="alert alert-danger"
+							th:if="${#fields.hasErrors('costProduct')}"
+							th:errors="*{costProduct}"></div>
+					</div>
+					<div class="form-group">
+						<label for="stock">STOCK:</label> <input type="text"
+							th:field="*{stockProduct}" class="form-control" id="stock"></input>
+						<div class="alert alert-danger"
+							th:if="${#fields.hasErrors('stockProduct')}"
+							th:errors="*{stockProduct}"></div>
+					</div>
+					<label for="categoria" class="col-sm-2 col-form-label">CATEGORIA:</label>
+					<select class="form-control" th:field="*{category.idCategory}">
+						<option th:each="ct: ${listaCategorys}"
+							th:value="${ct.idCategory}" th:text="${ct.nameCategory}"
+							th:selected="(${ct.idCategory} == *{category.idCategory})"></option>
+					</select>
+					<div class="form-group row">
+						<label for="file" class="col-sm-2 col-form-label ">FOTO:</label>
+						<div class="col-sm-6">
+							<input type="file" name="file" class="form-control"
+								th:text="${product.foto}" required="required" />
+						</div>
+					</div>
+				</div>
+			</div>
+			<button type="submit" class="btn btn-success">Aceptar</button>
+			<a href="/product/listar" class="btn btn-danger">Cancelar</a>
+		</form>
+	</div>
+	<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>
